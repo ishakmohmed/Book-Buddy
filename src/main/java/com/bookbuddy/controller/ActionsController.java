@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.bookbuddy.service.ActionService;
 import com.bookbuddy.service.AuthorService;
+import com.bookbuddy.service.BookService;
 import com.bookbuddy.util.IntentUtil;
 
 @RestController
@@ -31,6 +32,9 @@ public class ActionsController {
 	
 	@Autowired
 	private AuthorService authorService;
+	
+	@Autowired
+	private BookService bookService;
 	
 	@PostMapping
 	public ResponseEntity<?> executePostAction(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -50,7 +54,9 @@ public class ActionsController {
 					return new ResponseEntity<String>(authorJsonResponse, HttpStatus.OK);	
 					
 				case IntentUtil.LIST_BOOKS_BY_AUTHOR:
-					return new ResponseEntity<String>("Will be changed...", HttpStatus.OK);
+					String bookJsonResponse = bookService.handleRequest(body, getHeadersMap(request)).get();
+					
+					return new ResponseEntity<String>(bookJsonResponse, HttpStatus.OK);
 					
 				default:
 					return new ResponseEntity<String>("Request could not be processed", HttpStatus.OK);

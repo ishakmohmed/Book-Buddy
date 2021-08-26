@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Random;
 
 public class AuthorUtil {
-	public static final String NOT_FOUND_MESSAGE = "I didn't find any author. Maybe rephrase your question?";
+	public static final String NOT_FOUND_MESSAGE = "I didn't find any author as you mentioned. Maybe rephrase your question?";
 	public static final List<String> listOfAuthorsMessages = new ArrayList<>();
 	public static final List<String> listOfAuthorsSelectionMessages = new ArrayList<>();
 	
