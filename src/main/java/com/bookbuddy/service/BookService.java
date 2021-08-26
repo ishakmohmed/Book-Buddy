@@ -120,7 +120,7 @@ public class BookService extends DialogflowApp {
 			response.append(book.getSummary());
 			responseBuilder = getResponseBuilder(request).add(response.toString()).endConversation();
 		} else {
-			response.append(BookUtil.BOOK_NOT_FOUND_MESSAGE);
+			response.append(BookUtil.NOT_FOUND_MESSAGE);
 			responseBuilder = getResponseBuilder(request).add(response.toString());
 		}
 

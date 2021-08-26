@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Random;
 
 public class BookUtil {
-	public static final String BOOK_NOT_FOUND_MESSAGE = "Nope. Didn't find that book. Please try again.";
+	public static final String NOT_FOUND_MESSAGE = "Nope. Didn't find that book. Please try again.";
 	public static final String BOOKS_NOT_FOUND_MESSAGE = "No books found. Could you please try again?";
 	public static final List<String> listOfBooksMessages = new ArrayList<>();
 	public static final List<String> listOfBooksSelectionMessages = new ArrayList<>();
