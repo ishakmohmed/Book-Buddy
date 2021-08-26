@@ -102,6 +102,7 @@ public class BookService extends DialogflowApp {
 		return getBookDetails(request);
 	}
 
+	@ForIntent(IntentUtil.GET_BOOK_DETAILS_BY_AUTHOR)
 	public ActionResponse getBookDetails(ActionRequest request) {
 		StringBuilder response = new StringBuilder();
 		ResponseBuilder responseBuilder = null;
