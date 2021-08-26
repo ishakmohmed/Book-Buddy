@@ -13,7 +13,6 @@ import com.sun.istack.NotNull;
 @Entity
 @Table(name = "book")
 public class Book {
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -36,9 +35,7 @@ public class Book {
 	@ManyToOne(fetch = FetchType.LAZY)
 	private Author author;
 
-	public Book() {
-
-	}
+	public Book() {}
 
 	public Book(String title, String genre, Integer publicationYear) {
 		this.title = title;
@@ -90,42 +87,36 @@ public class Book {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		
 		result = prime * result + ((genre == null) ? 0 : genre.hashCode());
 		result = prime * result + ((publicationYear == null) ? 0 : publicationYear.hashCode());
 		result = prime * result + ((summary == null) ? 0 : summary.hashCode());
 		result = prime * result + ((title == null) ? 0 : title.hashCode());
+		
 		return result;
 	}
 
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
+		if (this == obj) return true;
+		if (obj == null) return false;
+		if (getClass() != obj.getClass()) return false;
+		
 		Book other = (Book) obj;
+		
 		if (genre == null) {
-			if (other.genre != null)
-				return false;
-		} else if (!genre.equals(other.genre))
-			return false;
+			if (other.genre != null) return false;
+		} else if (!genre.equals(other.genre)) return false;
 		if (publicationYear == null) {
-			if (other.publicationYear != null)
-				return false;
-		} else if (!publicationYear.equals(other.publicationYear))
-			return false;
+			if (other.publicationYear != null) return false;
+		} else if (!publicationYear.equals(other.publicationYear)) return false;
 		if (summary == null) {
-			if (other.summary != null)
-				return false;
-		} else if (!summary.equals(other.summary))
-			return false;
-		if (title == null) {
-			if (other.title != null)
-				return false;
-		} else if (!title.equals(other.title))
-			return false;
+			if (other.summary != null) return false;
+		} else if (!summary.equals(other.summary)) return false;
+		if (title == null) {                                  
+			if (other.title != null) return false;
+		} else if (!title.equals(other.title))return false;
+		
 		return true;
 	}
 
@@ -133,5 +124,4 @@ public class Book {
 	public String toString() {
 		return title;
 	}
-
 }

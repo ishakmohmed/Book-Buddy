@@ -16,7 +16,6 @@ import com.sun.istack.NotNull;
 @Entity
 @Table(name = "author", uniqueConstraints = { @UniqueConstraint(columnNames = { "givenName", "lastName" }) })
 public class Author {
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
@@ -32,9 +31,7 @@ public class Author {
 	@OneToMany(mappedBy = "author", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Book> books = new ArrayList<>();
 	
-	public Author() {
-
-	}
+	public Author() {}
 
 	public Author(String givenName, String lastName) {
 		this.givenName = givenName;
@@ -66,30 +63,28 @@ public class Author {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		
 		result = prime * result + ((givenName == null) ? 0 : givenName.hashCode());
 		result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
+		
 		return result;
 	}
 
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
+		if (this == obj) return true;
+		if (obj == null) return false;
+		if (getClass() != obj.getClass()) return false;
+		
 		Author other = (Author) obj;
+		
 		if (givenName == null) {
-			if (other.givenName != null)
-				return false;
-		} else if (!givenName.equals(other.givenName))
-			return false;
+			if (other.givenName != null) return false;
+		} else if (!givenName.equals(other.givenName)) return false;
 		if (lastName == null) {
-			if (other.lastName != null)
-				return false;
-		} else if (!lastName.equals(other.lastName))
-			return false;
+			if (other.lastName != null) return false;
+		} else if (!lastName.equals(other.lastName)) return false;
+		
 		return true;
 	}
 
@@ -97,5 +92,4 @@ public class Author {
 	public String toString() {
 		return givenName + " " + lastName;
 	}
-
 }
