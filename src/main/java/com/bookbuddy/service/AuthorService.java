@@ -39,8 +39,8 @@ public class AuthorService extends DialogflowApp {
 		response.append(AuthorUtil.getRandomAuthorSelectionMessage());
 
 		ResponseBuilder responseBuilder = getResponseBuilder(request).add(response.toString());
-		
 		ActionResponse actionResponse = responseBuilder.build();
+		
 		logger.info(actionResponse.toJson());
 
 		return actionResponse;

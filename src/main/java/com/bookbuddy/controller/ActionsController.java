@@ -42,13 +42,18 @@ public class ActionsController {
 		
 		try {
 			String intentName = actionService.getIntentName(body);
-			
-			if (intentName.equals(IntentUtil.LIST_AUTHORS)) {
-				String authorJsonResponse = authorService.handleRequest(body, getHeadersMap(request)).get();
-				
-				return new ResponseEntity<String>(authorJsonResponse, HttpStatus.OK);
-			} else {
-				return new ResponseEntity<String>("Request could not be processed", HttpStatus.OK);
+
+			switch (intentName) {
+				case IntentUtil.LIST_AUTHORS:
+					String authorJsonResponse = authorService.handleRequest(body, getHeadersMap(request)).get();
+					
+					return new ResponseEntity<String>(authorJsonResponse, HttpStatus.OK);	
+					
+				case IntentUtil.LIST_BOOKS_BY_AUTHOR:
+					return new ResponseEntity<String>("Will be changed...", HttpStatus.OK);
+					
+				default:
+					return new ResponseEntity<String>("Request could not be processed", HttpStatus.OK);
 			}
 		} catch (Exception e) {
 			logger.error("Error: " + e.getMessage());		
