@@ -1,6 +1,9 @@
 package com.bookbuddy.controller;
 
 import java.io.IOException;
+import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.stream.Collectors;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -15,6 +18,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.bookbuddy.service.ActionService;
+import com.bookbuddy.service.AuthorService;
+import com.bookbuddy.util.IntentUtil;
 
 @RestController
 @RequestMapping("/api/actions/")
@@ -23,6 +28,9 @@ public class ActionsController {
 	
 	@Autowired
 	private ActionService actionService;
+	
+	@Autowired
+	private AuthorService authorService;
 	
 	@PostMapping
 	public ResponseEntity<?> executePostAction(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -34,16 +42,36 @@ public class ActionsController {
 		
 		try {
 			String intentName = actionService.getIntentName(body);
+			
+			if (intentName.equals(IntentUtil.LIST_AUTHORS)) {
+				String authorJsonResponse = authorService.handleRequest(body, getHeadersMap(request)).get();
+				
+				return new ResponseEntity<String>(authorJsonResponse, HttpStatus.OK);
+			} else {
+				return new ResponseEntity<String>("Request could not be processed", HttpStatus.OK);
+			}
 		} catch (Exception e) {
 			logger.error("Error: " + e.getMessage());		
 			return new ResponseEntity<String>("Could not process the request", HttpStatus.OK);
-		}
-		
-		return new ResponseEntity<Void>(HttpStatus.OK);
+		}		
 	}
 	
 	@GetMapping
 	public ResponseEntity<?> executeGetAction() {
 		return new ResponseEntity<String>("This endpoint only accepts POST requests from Google Assistant", HttpStatus.OK);
+	}
+	
+	private Map<String, String> getHeadersMap(HttpServletRequest request) {
+		Map<String, String> headersMap = new HashMap<>();
+		Enumeration<?> headerNamesEnumeration = request.getHeaderNames();
+		
+		while (headerNamesEnumeration.hasMoreElements()) {
+			String key = (String) headerNamesEnumeration.nextElement();
+			String value = request.getHeader(key);
+			
+			headersMap.put(key, value);
+		}
+		
+		return headersMap;
 	}
 }
