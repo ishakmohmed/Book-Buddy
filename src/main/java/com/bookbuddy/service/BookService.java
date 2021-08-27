@@ -88,13 +88,6 @@ public class BookService extends DialogflowApp {
 		return actionResponse;
 	}
 
-	@ForIntent(IntentUtil.GET_BOOK_DETAILS_BY_AUTHOR)
-	public ActionResponse getBookDetailsByAuthor(ActionRequest request) {
-		logger.info("Executing intent - " + IntentUtil.GET_BOOK_DETAILS_BY_AUTHOR);
-
-		return getBookDetails(request);
-	}
-
 	@ForIntent(IntentUtil.GET_BOOK_DETAILS_BY_GENRE)
 	public ActionResponse getBookDetailsByGenre(ActionRequest request) {
 		logger.info("Executing intent - " + IntentUtil.GET_BOOK_DETAILS_BY_GENRE);
@@ -129,5 +122,12 @@ public class BookService extends DialogflowApp {
 		logger.info(actionResponse.toJson());
 
 		return actionResponse;
+	}
+	
+	@ForIntent(IntentUtil.GET_BOOK_DETAILS_BY_AUTHOR)
+	public ActionResponse getBookDetailsByAuthor(ActionRequest request) {
+		logger.info("Executing intent - " + IntentUtil.GET_BOOK_DETAILS_BY_AUTHOR);
+
+		return getBookDetails(request);
 	}
 }
