@@ -48,18 +48,24 @@ public class ActionsController {
 			String intentName = actionService.getIntentName(body);
 
 			switch (intentName) {
+				case IntentUtil.LIST_ACTIONS:
+					String actionJsonResponse = actionService.handleRequest(body, getHeadersMap(request)).get();
+					
+					return new ResponseEntity<String>(actionJsonResponse, HttpStatus.OK);
+				
 				case IntentUtil.LIST_AUTHORS:
 					String authorJsonResponse = authorService.handleRequest(body, getHeadersMap(request)).get();
-					
-					return new ResponseEntity<String>(authorJsonResponse, HttpStatus.OK);	
-					
+				
+					return new ResponseEntity<String>(authorJsonResponse, HttpStatus.OK);
+				
 				case IntentUtil.LIST_BOOKS_BY_AUTHOR:
 				case IntentUtil.GET_BOOK_DETAILS_BY_AUTHOR:
 				case IntentUtil.LIST_BOOKS_BY_GENRE:
+				case IntentUtil.GET_BOOK_DETAILS_BY_GENRE:
 					String bookJsonResponse = bookService.handleRequest(body, getHeadersMap(request)).get();
-					
+				
 					return new ResponseEntity<String>(bookJsonResponse, HttpStatus.OK);
-					
+				
 				default:
 					return new ResponseEntity<String>("Request could not be processed", HttpStatus.OK);
 			}
