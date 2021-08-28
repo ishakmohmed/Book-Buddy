@@ -106,6 +106,7 @@ public class BookService extends DialogflowApp {
 		StringBuilder response = new StringBuilder();
 		ResponseBuilder responseBuilder = null;
 		String bookTitle = request.getParameter("bookTitle").toString();
+				
 		Book book = bookRepository.findByTitleContainingIgnoreCase(bookTitle);
 
 		if (book != null) {

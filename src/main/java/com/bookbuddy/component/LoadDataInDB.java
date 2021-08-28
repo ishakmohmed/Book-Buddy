@@ -25,7 +25,7 @@ public class LoadDataInDB implements CommandLineRunner {
 		Book book2 = new Book("Java is Scary", "Horror", 2020);
 		
 		book2.setSummary("Following info is fake. Java is Scary is a book published by Elon Musk in 2020"
-				+ " in which he narrated how Java (a programming language) intimidated him as it was"
+				+ " in which he narrated how Java, a programming language intimidated him as it was"
 				+ " so difficult to be understood.");
 
 		author1.addBook(book1);
