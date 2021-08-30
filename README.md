@@ -21,10 +21,10 @@ Home screen of Book Buddy:
 
 ![Mohmed Ishak](https://user-images.githubusercontent.com/52876913/131381266-9a883e16-5d25-4f53-95fd-d398e5734253.png)
 
-### [6] How to Run the Project Locally
+### [5] How to Run the Project Locally
 If you want to just view the completed, hosted version of this app, refer point 1 above. Otherwise, keep reading. Please take note that this is just the backend of Book Buddy as there's no way to share my frontend (Dialogflow) project unless I know your email. If you do want to inspect the implementation on Dialogflow, message me and I will add you as a collaborator. If you're interested to check the backend out, fork this repository and clone it to your machine. Make sure you've got the right tools installed to run a Spring Boot project with MySQL (Google how to do so as I don't want to write a long, confusing article). In the resources folder, there's a file called `application.properties`. Change the username and password to that of your local MySQL database. The database URL is already good but make sure you manually create a database called `bookbuddydatabase` before running the application. 
 
-### [7] Hosting
+### [6] Hosting
 * Frontend: Automatically hosted by Dialogflow
 * Backend: Heroku
 * Database: AWS RDS (Relational Database Service)
