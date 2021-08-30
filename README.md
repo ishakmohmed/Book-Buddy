@@ -16,21 +16,15 @@ Book Buddy is an intelligent assistant (for a fake book library) built using Spr
 * AWS RDS
 * Heroku 
 
-### [5] Screenshots
+### [4] Screenshots
 Home screen of Book Buddy:
 
 ![Mohmed Ishak](https://user-images.githubusercontent.com/52876913/131381266-9a883e16-5d25-4f53-95fd-d398e5734253.png)
 
 ### [6] How to Run the Project Locally
-If you want to just view the completed, hosted version of this app, refer point 1 above. Otherwise, keep reading. Fork this repository and clone it to your machine. Make sure you've got Node, MongoDB, and Expo CLI installed on your machine. You may Google how to do so as it's very simple and I don't want to pollute my README file and bore you with too much of instructions. In the backend folder, add a .env file and paste the following code:
-    
-    NODE_ENV=development
-    PORT=5000
-    MONGO_URI=mongodb://localhost:27017/temporaryDB
-    JWT_SECRET_KEY=thisisafakejwtsecretkey
-Then install all frontend and backend dependencies by typing ```npm i``` in terminal for frontend and backend folder individually. Then, run the backend server by typing ```nodemon index.js``` in the terminal under backend folder. Then, launch the app from the frontend folder in the terminal by typing ```npm start```. A website will be launched. Follow the instructions in that site to view the app on your mobile phone. If the instructions change in future, please paste this phrase to Google search engine and do a super quick research: "How to run an Expo app from my mobile phone".  
+If you want to just view the completed, hosted version of this app, refer point 1 above. Otherwise, keep reading. Please take note that this is just the backend of Book Buddy as there's no way to share my frontend (Dialogflow) project unless I know your email. If you do want to inspect the implementation on Dialogflow, message me and I will add you as a collaborator. If you're interested to check the backend out, fork this repository and clone it to your machine. Make sure you've got the right tools installed to run a Spring Boot project with MySQL (Google how to do so as I don't want to write a long, confusing article). In the resources folder, there's a file called `application.properties`. Change the username and password to that of your local MySQL database. The database URL is already good but make sure you manually create a database called `bookbuddydatabase` before running the application. 
 
 ### [7] Hosting
-* Frontend: Expo
+* Frontend: Automatically hosted by Dialogflow
 * Backend: Heroku
-* Database: MongoDB Atlas
+* Database: AWS RDS (Relational Database Service)
