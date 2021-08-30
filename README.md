@@ -13,7 +13,7 @@ Book Buddy is an intelligent assistant (for a fake book library) built using Spr
 * Spring REST
 * MySQL
 * Ngrok (for webhook callback from Dialogflow to localhost/developent environment)
-* AWS RDS
+* AWS RDS (Relational Database Service)
 * Heroku 
 
 ### [4] Screenshots
