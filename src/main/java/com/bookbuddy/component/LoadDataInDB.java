@@ -15,11 +15,11 @@ public class LoadDataInDB implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		if (authorRepository.count() > 0) return;
-		
-		Author author1 = new Author("Elon", "Musk");
+			
+		Author author1 = new Author("John", "Cena");
 		Book book1 = new Book("Behind The Scenes", "Biography", 2021);
 		
-		book1.setSummary("Following info is fake. Behind The Scenes by Elon Musk is a book published by Elon Musk"
+		book1.setSummary("Following info is fake. Behind The Scenes is a book published by John Cena"
 				+ " in 2021 in which he talks about his ups and downs before building Tesla.");
 		
 		Book book2 = new Book("Java is Scary", "Horror", 2020);
@@ -66,5 +66,21 @@ public class LoadDataInDB implements CommandLineRunner {
 		author3.addBook(book5);
 		author3.addBook(book6);
 		authorRepository.save(author3);
+		
+		Author author4 = new Author("David", "Cooperfield");
+		Book book7 = new Book("The Scary Book", "Novel", 2026);
+		
+		book7.setSummary(
+				"Following info is fake. The Scary Book is a horror book written by David Cooperfield in 2026 in which he"
+						+ " narrates a bunch of real life horror stories that took place in Malaysia.");
+		
+		Book book8 = new Book("Me Before You", "Romance", 2016);
+		
+		book8.setSummary("Following info is fake. Me Before You is a romance book written by David Cooperfield in 2026 which is about the story of"
+								+ " Louisa Clark who is forced to accept one which requires her to take care of Will Traynor, a paralysed man. The two of them soon bond with each other.");
+		
+		author4.addBook(book7);
+		author4.addBook(book8);
+		authorRepository.save(author4);
 	}
-}
+}	
