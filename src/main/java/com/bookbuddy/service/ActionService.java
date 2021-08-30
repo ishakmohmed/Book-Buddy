@@ -21,10 +21,8 @@ public class ActionService extends DialogflowApp {
 
 		StringBuilder response = new StringBuilder();
 		
-		response.append("I can tell you the authors I know about or you can tell me which"
-				+ " type of book you are interested in. ");
-		response.append("Based on your selection, we can go forward with the process. ");
-		response.append("So, please tell me, what would you like to know?");
+		response.append("You can ask me the authors I know (e.g. \"List all the authors\") and then you can know more about the books they wrote.");
+		response.append(" Ask me now! :) ");
 
 		ResponseBuilder responseBuilder = getResponseBuilder(request).add(response.toString());
 		ActionResponse actionResponse = responseBuilder.build();
