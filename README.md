@@ -1,4 +1,4 @@
-# Fair Burger
+# Book Buddy
 
 ### [1] See Live Version Immediately
 Head over to this link: https://bot.dialogflow.com/7cddcaf6-d319-4c2c-b5a0-b14ab4275e5c
