@@ -1,5 +1,7 @@
 # Book Buddy
 
+WARNING: if Book Buddy replies you with [empty response], wait for 1 minute, reload the app, and chat with Book Buddy. It will work now because the backend is set to sleep after a couple of hours of inactivity (cold start problem).
+
 ### [1] See Live Version Immediately
 Head over to this link: https://bot.dialogflow.com/7cddcaf6-d319-4c2c-b5a0-b14ab4275e5c
 
